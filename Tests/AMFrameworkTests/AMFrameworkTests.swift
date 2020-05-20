@@ -1,12 +1,21 @@
 import XCTest
+import SwiftUI
 @testable import AMFramework
 
 final class AMFrameworkTests: XCTestCase {
+    
+    @State var text: String
+    
+    public init(text: String) {
+        self.text = text
+        super.init()
+    }
+    
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(AMFramework().text, "Hello, World!")
+        
+        var body: some View {
+            AMFramework.MainTextField(placeholder: "Testing", text: $text)
+        }
     }
 
     static var allTests = [
